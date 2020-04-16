@@ -92,6 +92,71 @@ class Dog extends Animal {
 
 继承都是单继承，只能为一组相关的类提供一致的服务接口。但是接口可以是多继承多实现，它能够利用一组相关或者不相关的接口进行组合与扩充，能够对外提供一致的服务接口。所以它相对于继承来说有更好的灵活性。
 
+split方法
+在处理字符串的时候我们经常需要将他们切割，然后分别处理，比如我们有一个字符串：张三，李四，王五，赵六，现在我们想要将他们的名字拆分出来，变成一个单独的字符串，如何做呢？
+
+很简单使用split方法即可。
+
+String str = "张三，李四，王五，赵六";
+String[] names = str.split("，");
+for (int i = 0; i < names.length; i++) {
+    System.out.println(names[i]);
+}
+输出：
+
+张三
+
+李四
+
+王五
+
+赵六
+
+StringBuffer类
+StringBuffer类和String类一样，也用来代表字符串，只是由于StringBuffer的内部实现方式和String不同，StringBuffer在进行字符串处理时，不生成新的对象，所以在内存使用上，StringBuffer类要优于String类。
+
+StringBuffer类中存在很多和String类一样的方法，这些方法在功能上是完全一样的。
+
+StringBuffer类中也有一些独特的方法，用于帮助我们更方便的实现某些功能。
+
+StringBuffer类的对象的初始化
+通常情况下使用构造方法对其进行初始化：
+
+StringBuffer stringBuffer = new StringBuffer();
+这样初始化出的StringBuffer对象是一个空的对象。
+
+如果需要创建带有内容的StringBuffer对象，则可以使用：
+
+StringBuffer stringBuffer = new StringBuffer("Hello World!");
+这样初始化出的StringBuffer对象的内容就是字符串"Hello World!"。
+
+append()方法
+append()方法的作用是追加内容到当前StringBuffer对象的末尾，类似于字符串的连接，请看示例：
+
+StringBuffer stringBuffer = new StringBuffer("Hello");
+stringBuffer.append("World!");
+System.out.println(stringBuffer);
+执行以上代码，结果为：
+
+HelloWorld!
+reverse()方法
+reverse()方法将把当前字符序列反转后返回，请看示例：
+
+StringBuffer stringBuffer = new StringBuffer("abc");
+System.out.println(stringBuffer.reverse());
+执行以上代码，结果为：
+
+cba
+StringBuffer对象和String对象互转
+注意，StringBuffer和String属于不同的类型，也不能直接进行强制类型转换，下面的代码都是错误的：
+
+StringBuffer s = "abc";  //赋值类型不匹配
+StringBuffer s = (StringBuffer)"abc";  //不存在继承关系，无法进行强转
+正确的对象之间互转代码如下：
+
+String string1 = "Hello World!";
+StringBuffer stringBuffer = new StringBuffer(string1);  //String转换为StringBuffer
+String string2 = stringBuffer.toString();  //StringBuffer转换为String
 
 
 
