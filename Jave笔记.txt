@@ -158,5 +158,33 @@ String string1 = "Hello World!";
 StringBuffer stringBuffer = new StringBuffer(string1);  //String转换为StringBuffer
 String string2 = stringBuffer.toString();  //StringBuffer转换为String
 
+Math类
+Math类是一个工具类，它的构造器被定义成private的，因此无法创造Math类的对象。Math类中所有的方法都是类方法，可以直接通过类名来调用他们。
+
+Math类包含完成基本数学函数所需的方法。这些方法基本可以分为三类：三角函数方法、指数函数方法和服务方法。在Math类中定义了PI和E两个double型常量，PI就是π的值，而E即e指数底的值，分别是：3.141592653589793和2.718281828459045。
+
+Math类中常用方法
+三角函数方法；
+Math类包含下面的三角函数方法：
+
+Math.toDegrees
+
+这个方法是将-π/2到π/2之间的弧度值转化为度，例如：Math.toDegrees(Math.PI/2)结果为90.0；
+
+Math.toRadians
+
+这个方法是将度转化为-π/2到π/2之间的弧度值，例如：Math.toRadians(30)结果为π/6；
+
+Math.sin、Math.cos、Math.tan这三个方法是三角函数中的正弦、余弦和正切，反之Math.asin、Math.acos、Math.atan是他们的反函数。
+指数函数方法；
+Math类中有五个与指数函数相关的方法Math.exp(a)方法主要是获得以 e 为底 a 为指数的数值；Math.log()和Math.log10()是对数函数；Math.pow(a,b)是以a为底b为指数的值；Math.sqrt()是开根号。
+
+取整方法；
+Math类里包含五个取整方法：Math.ceil()方法是往大里取值；Math.floor()方法是往小里取值；Math.rint()方法返回与参数最接近的整数，返回类型为double，注意.5的时候会取偶数；Math.round()方法分两种：int型和long型，Math.round(a)就是Math.floor(a+0.5)，即将原来的数字加上0.5后再向下取整，所以，Math.round(11.5)的结果为12，Math.round(-11.5)的结果为-11。
+
+min、max和abs方法
+取最大值和最小值以及绝对值。
+
+random方法。
 
 
