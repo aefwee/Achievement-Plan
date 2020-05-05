@@ -188,3 +188,74 @@ min、max和abs方法
 random方法。
 
 
+
+集合是什么
+ JAVA中的集合：是一个工具类，就像是容器，存储任意数量具有共同属性的集合。
+怎么创建集合
+我们来创建一个简单的集合：
+
+1.导包
+
+import java.util.ArrayList;
+2.创建集合
+
+ArrayList list = new ArrayList();
+如何向集合中添加数据
+list.add("hello");
+list.add(2018);
+
+
+获取集合中的数据：
+使用 get(index)即可获取集合中的数据，和数组相同， index为角标，从0开始。
+例如：
+
+ArrayList list = new ArrayList();
+list.add("张无忌");
+list.add(18);
+String name = (String)list.get(0);
+int age = (int)list.get(1);
+System.out.println("姓名：" + name + " 年龄：" + age);
+输出：
+
+ 姓名：张无忌 年龄：18
+修改集合中的数据：
+使用 set(index, element)方法即可修改集合中的数据，第一个参数代表索引，即修改集合第几个位置的元素， index从 0开始，第二个参数 element是要修改的数据。
+
+例如：
+
+ArrayList list = new ArrayList();
+list.add("张无忌");
+list.add(18);
+String name = (String)list.get(0);
+int age = (int)list.get(1);
+System.out.println("姓名：" + name + " 年龄：" + age);
+list.set(0,"张三丰");    //修改集合的第一个元素
+name = (String)list.get(0);
+System.out.println("姓名：" + name + " 年龄：" + age);
+输出：
+
+ 姓名：张无忌 年龄：18 姓名：张三丰 年龄：18
+
+删除集合中的数据：
+使用 remove(index)或 remove(element)方法即可删除元素， remove方法是一个重载的方法，第一种可以根据索引位置删除元素，第二种可以根据元素的引用来删除集合中对应的元素。
+
+如下：
+
+ArrayList list = new ArrayList();
+list.add("张无忌");
+list.add(18);
+//List集合的toString可以输出数组中所有的数据
+System.out.println(list.toString()); 
+Object obj1 = list.get(0);
+list.remove(obj1); //根据元素的引用删除元素
+System.out.println(list.toString());
+list.remove(0);    //根据索引删除元素
+System.out.println(list.toString());
+输出：
+
+ [张无忌, 18] [18] []
+
+
+
+
+
