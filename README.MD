@@ -2,7 +2,7 @@
 
 > 本项目地址：  https://github.com/aefwee/Achievement-Plan.git
 
-### \# 学业
+## \# 学业
 
 
 #### \# 大二
@@ -42,10 +42,9 @@
 	-	在sf.gg上拥有1K+声望  
 	-	github至少获得20个follow和100个star  
 
----   
 
 
-### \# 其他
+## \# 其他
 
 #### \# 联系我
 
