@@ -42,7 +42,6 @@
 	-	在sf.gg上拥有1K+声望  
 	-	github至少获得20个follow和100个star  
 
----   
 
 
 ## \# 其他
