@@ -101,6 +101,7 @@
 -	[偷听传销一席话，胜读十年鸡汤书](https://zhuanlan.zhihu.com/p/41958316?utm_source=wechat_timeline&utm_medium=social&utm_oi=696084238058917888&from=timeline)
 -	[我把这两年的精华文章都整理出来了](https://mp.weixin.qq.com/s/Cpxiq7EuMtfAC8f4BmVIOQ)
 -	[网站收集](https://github.com/mingyun/mingyun.github.io/issues/92)
+-	[程序员找工作的各种坑…… 及防坑指南](https://mp.weixin.qq.com/s/XkJ3R_ZLRcvfL1RKHdFu5A)
 
 
 
