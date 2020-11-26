@@ -1,0 +1,45 @@
+public class SortArithMetic{
+          public int[] insertSort(int[] data){
+                  for(int i=1;i<data.length;i++){
+                         if(data[i]<data[i-1]){
+                             int temp=data[i];
+                             int j=0;
+                             for(j=i-1;j>=0&&temp<data[j];j--){
+                                  data[j+1]=data[j];
+                              }
+                             data[j+1]=temp;
+                         }
+                   }
+            return data;
+}
+
+
+
+测试代码：
+
+public class TestSortArithMetic{
+          public static void main(String[] args){
+                 int [] data={70,30,40,10,80,20,90,100,75,60,45};
+                 System.out.println("原始的数字序列：");
+                 for(int i=0;i<data.length;i++){
+                       System.out.print(data[i]+"");
+                  }
+                 System.out.println();
+                 SortArithMetic sort=new SortArithMetic();
+                 data=sort.insertSort(data);
+                 System.out.println("排序后的数字序列：");
+                 for(int i=0;i<data.length;i++){
+                        System.out.print(data[i]+"");
+                  }
+           }
+}
+
+
+
+
+
+
+
+
+
+
