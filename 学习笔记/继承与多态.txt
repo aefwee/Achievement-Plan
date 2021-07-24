@@ -55,3 +55,57 @@ Java中类只支持单继承，不支持多继承。
 public class Son extends Father,Mother{ }
 是错误的。
 Java中类支持多层继承。
+
+6.package
+包的概述和使用：
+包其实就是文件夹，作用：对类进行分类管理。
+包的定义格式：
+package 包名; (多级包用 . 分开)
+范例：package com.itheima;
+带包的Java类编译和执行
+手动建包:
+按照以前的格式编译java文件:
+javac HelloWorld.java
+手动创建包：
+在E盘建立文件夹com,然后在com下建立文件夹itheima
+把class文件放到包的最里面：
+把HelloWorld.class文件放到com下的itheima这个文件夹下
+带包执行：
+java com.itheima.HelloWorld
+自动建包：
+javac -d . HelloWorld.java java com.itheima.HelloWorld
+
+7.import
+导包的概述和使用:
+使用不同包下的类时,佣的时候要写类的全路径，写起来太麻烦了，为了简化带包的操作，Java就提供了导包的功能
+包的格式：
+格式: import 包名;
+范例: import cn.itcast.Teacher
+
+8.权限修饰符
+同一个类中 可以访问的修饰符：private ；默认 ；protected ；public
+同一个包中子类无关类：默认 ；protected ；public
+不同包的子类：protected ；public
+不同包的无关类：public
+final修饰局部变量
+变量是基本类型: final修饰指的是基本类型的数据值不能发生改变
+变量是引用类型: final 修饰指的是引用类型的地址值不能发生改变,但是地址里面的内容是可以发生改变的
+static
+static关键字是静态的意思，可以修饰成员方法,成员变量
+static修饰的特点：
+●被类的所有对象共享
+这也是我们判断是否使使用静态关键字的条件
+●可以通过类名调用
+当然，也可以通过对象名调用
+推荐使用类名调用
+static访问特点：
+非静态的成员方法
+●能访问静态的成员变量
+●能访问非静态的成员变量
+●能访问静态的成员方法
+●能访问非静态的成员方法
+
+静态的成员方法
+●能访问静态的成员量
+●能访问静态的成员方法
+总结成一句话就是:静态成员方法只能访问静态成员
