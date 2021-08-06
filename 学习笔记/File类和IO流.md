@@ -1,5 +1,7 @@
 一.File类
+
 1.File类概述和构造方法
+
 File:它是文件和目录路径名的抽象表示
 ●文件和目录可以通过File封装成对象的
 ●对于File而言,其封裝的并不是一个真正存在的文件,仅仅是一个路径名而已。它可以是存在的，可以是不存在的。将来是要通过具体的操作把这个路径的内容转换为具体存在的。
@@ -8,12 +10,16 @@ File:它是文件和目录路径名的抽象表示
 File(String pathname)	                通过将给定的路径名字符串转换为抽象路径名来创建新的File实例
 File(String parent, String child)	从父路径名字符串和子路径名字符串创建新的File实例
 File(File parent, String child)	        从父抽象路径名和子路径名字符串创建新的File实例
+
 2. File类创建功能
+
 方法名	                                 说明
 public boolean createNewFile()	 当具有该名称的文件不存在时，创建一个由该抽象路径名命名的新空文件
 public boolean mkdir()	         创建由此抽象路径名命名的目录
 public boolean mkdirs()	          创建由此抽象路径名命名的目录，包括任何必需但不存在的父目录
+
 3. File类判断和获取功能
+
 方法名	                                  说明
 public boolean isDirectory()	  测试此抽象路径名表示的File是否为目录
 public boolean isFile()	          测试此抽象路径名表示的File是否为文件
@@ -23,7 +29,9 @@ public String getPath()	          将此抽象路径名转换为路径名字符�
 public String getName()    	  返回由此抽象路径名表示的文件或目录的名称
 public String[] list()	          返回此抽象路径名表示的目录中的文件和目录的名称字符串数组
 public File[] listFiles()	  返回此抽象路径名表示的目录中的文件和目录的File对象数组
+
 4. File类删除功能
+
 方法名	                      说明
 public boolean delete()	   删除由此抽象路径名表示的文件或目录
 绝对路径和相对路径的区别:
@@ -33,7 +41,9 @@ public boolean delete()	   删除由此抽象路径名表示的文件或目录
 ●如果一个目录中有内容(目录, 文件),不能直接删除。应该先删除目录中的内容，最后才能删除目录
 
 二.递归
+
 1.递归
+
 递归概述:以编程的角度来看，递归指的是方法定义中调用方法本身的现象
 递归解决问题的思路:
 把一个复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解
@@ -43,7 +53,9 @@ public boolean delete()	   删除由此抽象路径名表示的文件或目录
 ●递归规则: 与原问题相似的规模较小的问题
 
 三.IO字节流
+
 1.IO流概述和分类
+
 IO流概述:
 ●IO: 输入/输出(Input/Output)
 ●流: 是一种抽象概念,对数据传输的总称。也就是说数据在设备间的传输称为流，流的本质是数据传输
@@ -64,6 +76,7 @@ IO流分类:
 否则使用字节流。如果你不知道该使用哪种类型的流，就使用字节流。
 
 2.字节流写数据
+
 字节流抽象基类
 ●InputStream: 这个抽象类是表示字节输入流的所有类的超类
 OutputStream:这个抽象类是表示字节输出流的所有类的超类
@@ -76,11 +89,14 @@ FileOutputStream:文件输出流用于将数据写入File
 ●释放资源(关闭文件输出流并释放与此流相关联的任何系统资源)
 
 3.字节流写数据的3种方式
+
 方法名	                         说明
 void write(int b)	将指定的字节写入此文件输出流，一次写一个字节数据
 void write(byte[] b)	将b.length字节从指定的字节数组写入此文件输出流，一次写一个字节数组数据
 void write(byte[ b, int off, int len)	将len字节从指定的字节数组开始，从偏移量off开始写入此文件输出流，一次写一个字节数组的部分数据。
+
 4.字节流写数据加异常处理
+
 finally:在异常处理时提供finally块来执行所有清除操作。比如说IO流中的释放资源
 特点:被finally控制的语句-定会执行,除非JVM退出
 try{
@@ -92,6 +108,7 @@ try{
 }
 
 5.字节流读数据(一次读一个字节数据)
+
 需求:把文件fos.txt中的内容读取出来在控制台输出
 FileInputStream:从文件系统中的文件获取输入字节
 ●FileInputStream(String name):通过打开与实际文件的连接来创建一个FileInputStream,该文件由
@@ -187,11 +204,13 @@ flush()	刷新流，还可以继续写数据
 close()	关闭流，释放资源，但是在关闭之前会先刷新流。一旦关闭，就不能再写数据
 
 6.字符流读数据的两种方式
+
 方法名	                说明
 int read()	       一次读一个字符数据
 int read(char[] chuff)	一次读一个字符数组数据
 
 7.字符缓冲流
+
 字符缓冲流:
 ●BufferedWriter：将文本写入字符输出流，缓冲字符，以提供单个字符，数组和字符串的高效写入，可
 以指定缓冲区大小，或者可以接受默认大小。默认值足够大，可用于大多数用途。
@@ -202,7 +221,43 @@ int read(char[] chuff)	一次读一个字符数组数据
 ●BufferedReader(Reader in)
 
 8.字符缓冲流特有功能
+
 BufferedWriter:
 ●void newLine0:写一行分隔符，分隔符字符串由系统属性定义
 BufferedReader: 
 ●public String readLine(): 读一行文字。结果包含行的内容的字符串,不包括任何行终止字符,如果流的结尾已经到达，则为null。
+
+五.标准流和打印流
+
+1.标准输入输出流
+
+System类中有两个静态的成员变量:
+public static final InputStreamin:标准输入流。通常该流对应于键盘输入或由主机环境或用户指定的另一个输入源
+●public static final PrintStream out:标准输出流。通常该流对应于显示输出或由主机环境或用户指定的另一个输出目标
+自己实现键盘录入数据:
+oBufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+写起来太麻烦，Java就提供了一个类实现键盘录入：
+●Scanner sc = new Scanner(System.in);
+输出语句的本质:是一个标准的输出流
+●PrintStream ps = System.out;
+●PrintStream类有的方法，System.out都可以使用
+
+2.打印流
+
+打印流分类:
+●字节打印流: PrintStream
+●字符打印流: PrintWriter
+打印流的特点:
+●只负责输出数据, 不负责读取数据
+●有自己的特有方法
+字节打印流：
+●PrintStream(String fileName):使用指定的文件名创建新的打印流
+●使用继承父类的方法写数据, 查看的时候会转码;使用自己的特有方法写数据，查看的数据原样输出
+
+字符打印流PrintWriter的构造方法:
+
+方法名	                                   说明
+PrintWriter(String fileName)	           使用指定的文件名创建一个新的PrintWriter, 而不需要自动执行刷新
+PrintWriter(Writer out, boolean autoFlush)	创建一个新的PrintWriter 。 out:字符输出流 ， autoFlush:一个布尔值，如果为真，则println, printf，或format方法将刷新输出缓冲区
+输出流一般方法：ps.write()
+特有方法：ps.print(); ps.println()
