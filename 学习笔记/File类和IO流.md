@@ -401,3 +401,105 @@ PrintWriter(Writer out, boolean autoFlush)	创建一个新的PrintWriter 。 out
 输出流一般方法：ps.write()
 
 特有方法：ps.print(); ps.println()
+
+
+六.对象序列化流
+
+1.对象序列化概述
+
+对象序列化:就是将对象保存到磁盘中，或者在网络中传输对象
+
+这种机制就是使用一个字节序列表示一个对象， 该字节序列包含:对象的类型、对象的数据和对象中存储的属性等信息
+
+字节序列写到文件之后，相当于文件中持久保存了一个对象的信息
+
+反之，该字节序列还可以从文件中读取回来，重构对象,对它进行反序列化
+
+要实现序列化和反序列化就要使用对象序列化流和对象反序列化流:
+
+对象序列化流: ObjectOutputStream
+
+对象反序列化流: ObjectInputStream
+
+2.对象序列化流
+
+对象序列化流: ObjectOutputStream
+
+●将Java对象的原始数据类型和图形写入OutputStream。可以使用ObjectInputStream读取 (重构)对象。可以通过使用流的文件来实现对象的持久存储。如果流是网络套接字流,则可以在另一个主机上或另一个进程中重构对象
+
+构造方法:
+
+●ObjectOutputStream(OutputStream out): 创建一个写入指定的OutputStream的ObjectOutputStream
+
+序列化对象的方法:
+
+●void writeObject(Object obj):将指定的对象写入ObjectOutputStream
+
+注意：
+
+一个对象要想被序列化，该对象所属的类必须实现Serializable接口
+
+Serializable是一个标记接口，实现该接口，不需要重写任何方法。
+
+3.对象反序列化流
+
+对象反序列化流: ObjectInputStream
+
+●ObjectInputStream反序列化先前使用ObjectOutputStream编写的原始数据和对象
+
+构造方法:
+
+●ObjectInputStream(InputStreamin): 创建从指定的InputStream读取的ObjectlnputStream
+
+反序列化对象的方法:
+
+●Object readObject0:从ObjectlnputStream读取一个对象
+
+4.serialVersionUID和transient
+
+用对象序列化流序列化了一个对象后,假如我们修改了对象所属的类文件,读取数据会不会出问题呢?
+
+●会出问题， 抛出InvalidClassException异常  
+
+如果出问题了，如何解决呢?
+
+●给对象所属的类加一个serialVersionUID
+
+private static final long serialVersionUID = 42L;
+
+如果一个对象中的某个成员变量的值不想被序列化，又该如何实现呢?
+
+●给该成员变量加transient关键字修饰， 该关键字标记的成员量不参与序列化过程
+
+
+七.Properties类
+
+1.Properties作为Map集合
+
+Properties概述：
+
+是一个Map体系的集合类
+
+Properties可以保存到流中或从流中加载
+
+Properties作为集合的特有方法:
+
+方法名	                         说明
+
+Object setProperty(String key, String value)，	设置集合的键和值，都是String类型，底层调用Hashtable方法put
+
+String getProperty(String key)，	使用此属性列表中指定的键搜索属性
+
+Set <String> stringPropertyNames()	，从该属性列表中返回一个不可修改的键集，其中键及其对应的值是字符串
+
+2.Properties和IO流结合的方法:
+
+方法名	说明
+
+void load(InputStream inStream)，	从输入字节流读取属性列表(键和元素对)
+
+void load(Reader reader)，	从输入字符流读取属性列表(键和元素对)
+
+void store(OutputStream out,String comment()，	将此属性列表(键和元素对)写入此Properties表中，以适合于使用load(InputStream)方法的格式写入输出字节流
+
+void store(Writer writer, String comments)	，将此属性列表(键和元素对)写入此Properties表中，以适合使用load(Reader)方法的格式写入输出字符流
